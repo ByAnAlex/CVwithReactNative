@@ -18,7 +18,7 @@ const educationHistory = [
     place: "SD Taman Harapan Malang, Indonesia",
   },
   {
-    period: "Tahun 2028 - 2020",
+    period: "Tahun 2018 - 2020",
     title: "SMP",
     place: "SMPK Kolese Santo Yusup 1, Malang, Indonesia",
   },
@@ -49,7 +49,7 @@ export default function EducationScreen() {
         scrollEventThrottle={16}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: true }
+          { useNativeDriver: true },
         )}
       >
         <TopTabs />
@@ -68,11 +68,17 @@ export default function EducationScreen() {
                 key={`${item.period}-${item.title}`}
                 style={[
                   styles.timelineItem,
-                  index === educationHistory.length - 1 && styles.timelineItemLast,
+                  index === educationHistory.length - 1 &&
+                    styles.timelineItemLast,
                 ]}
               >
                 <View style={styles.timelineRail}>
-                  <View style={[styles.timelineDot, isActive && styles.timelineDotActive]} />
+                  <View
+                    style={[
+                      styles.timelineDot,
+                      isActive && styles.timelineDotActive,
+                    ]}
+                  />
                   {index !== educationHistory.length - 1 ? (
                     <View style={styles.timelineLine} />
                   ) : null}
@@ -96,7 +102,6 @@ export default function EducationScreen() {
             );
           })}
         </View>
-
       </Animated.ScrollView>
     </SafeAreaView>
   );
