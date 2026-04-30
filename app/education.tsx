@@ -1,5 +1,3 @@
-import { Feather } from "@expo/vector-icons";
-import { Link, router } from "expo-router";
 import { useRef, useState } from "react";
 import {
   Animated,
@@ -11,6 +9,7 @@ import {
   View,
 } from "react-native";
 import StarBackground from "./starBackground";
+import TopTabs from "./topTabs";
 
 const educationHistory = [
   {
@@ -53,13 +52,7 @@ export default function EducationScreen() {
           { useNativeDriver: true }
         )}
       >
-        <Pressable
-          onPress={() => router.back()}
-          style={({ pressed }) => [styles.backButton, pressed && styles.backPressed]}
-        >
-          <Feather name="arrow-left" size={18} color="#d9f5ff" />
-          <Text style={styles.backText}>Kembali ke Profil</Text>
-        </Pressable>
+        <TopTabs />
 
         <View style={styles.headerCard}>
           <Text style={styles.eyebrow}>EDUCATION JOURNEY</Text>
@@ -104,17 +97,6 @@ export default function EducationScreen() {
           })}
         </View>
 
-        <Link href="/projects" asChild>
-          <Pressable
-            style={({ pressed }) => [
-              styles.primaryButton,
-              pressed && styles.primaryButtonPressed,
-            ]}
-          >
-            <Text style={styles.primaryButtonText}>Lanjut ke Riwayat Project</Text>
-            <Feather name="arrow-right" size={18} color="#03101c" />
-          </Pressable>
-        </Link>
       </Animated.ScrollView>
     </SafeAreaView>
   );
@@ -130,26 +112,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 36,
     gap: 18,
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-    alignSelf: "flex-start",
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.08)",
-  },
-  backPressed: {
-    opacity: 0.88,
-  },
-  backText: {
-    color: "#d9f5ff",
-    fontSize: 13,
-    fontWeight: "600",
   },
   headerCard: {
     backgroundColor: "rgba(7, 17, 31, 0.84)",
@@ -245,31 +207,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     lineHeight: 21,
-  },
-  primaryButton: {
-    marginTop: 4,
-    backgroundColor: "#7dd3fc",
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.28)",
-    borderRadius: 20,
-    paddingVertical: 18,
-    paddingHorizontal: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    shadowColor: "#7dd3fc",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.35,
-    shadowRadius: 18,
-    elevation: 6,
-  },
-  primaryButtonPressed: {
-    opacity: 0.96,
-    transform: [{ scale: 0.99 }],
-  },
-  primaryButtonText: {
-    color: "#03101c",
-    fontSize: 15,
-    fontWeight: "800",
   },
 });

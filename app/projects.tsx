@@ -1,6 +1,5 @@
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { router } from "expo-router";
 import { useRef, useState } from "react";
 import {
   Animated,
@@ -14,6 +13,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import StarBackground from "./starBackground";
+import TopTabs from "./topTabs";
 
 const projects = [
   {
@@ -73,16 +73,7 @@ export default function ProjectsScreen() {
           { useNativeDriver: true }
         )}
       >
-        <Pressable
-          onPress={() => router.back()}
-          style={({ pressed }) => [
-            styles.backButton,
-            pressed && styles.backPressed,
-          ]}
-        >
-          <Feather name="arrow-left" size={18} color="#d9f5ff" />
-          <Text style={styles.backText}>Kembali ke Pendidikan</Text>
-        </Pressable>
+        <TopTabs />
 
         <View style={styles.headerCard}>
           <Text style={styles.eyebrow}>PROJECT ARCHIVE</Text>
@@ -182,26 +173,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 36,
     gap: 18,
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-    alignSelf: "flex-start",
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.08)",
-  },
-  backPressed: {
-    opacity: 0.88,
-  },
-  backText: {
-    color: "#d9f5ff",
-    fontSize: 13,
-    fontWeight: "600",
   },
   headerCard: {
     backgroundColor: "rgba(7, 17, 31, 0.84)",

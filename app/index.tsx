@@ -1,10 +1,7 @@
-import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { Link } from "expo-router";
 import { useRef } from "react";
 import {
   Animated,
-  Pressable,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -12,6 +9,7 @@ import {
   View,
 } from "react-native";
 import StarBackground from "./starBackground";
+import TopTabs from "./topTabs";
 
 const skillLevels = [
   { name: "Bahasa C", value: 60 },
@@ -50,6 +48,8 @@ export default function HomeScreen() {
           { useNativeDriver: true }
         )}
       >
+        <TopTabs />
+
         <View style={styles.heroCard}>
           <View style={styles.heroHeader}>
             <View style={styles.heroHeadingWrap}>
@@ -145,19 +145,6 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        <Link href="/education" asChild>
-          <Pressable
-            style={({ pressed }) => [
-              styles.primaryButton,
-              pressed && styles.primaryButtonPressed,
-            ]}
-          >
-            <Text style={styles.primaryButtonText}>
-              Lihat Riwayat Pendidikan
-            </Text>
-            <Feather name="arrow-right" size={18} color="#03101c" />
-          </Pressable>
-        </Link>
       </Animated.ScrollView>
     </SafeAreaView>
   );
@@ -365,32 +352,5 @@ const styles = StyleSheet.create({
     color: "#c8d7e5",
     fontSize: 14,
     lineHeight: 21,
-  },
-  primaryButton: {
-    marginTop: 8,
-    backgroundColor: "#7dd3fc",
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.28)",
-    borderRadius: 20,
-    paddingVertical: 18,
-    paddingHorizontal: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    shadowColor: "#7dd3fc",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.35,
-    shadowRadius: 18,
-    elevation: 6,
-  },
-  primaryButtonPressed: {
-    opacity: 0.96,
-    transform: [{ scale: 0.99 }],
-    shadowOpacity: 0.22,
-  },
-  primaryButtonText: {
-    color: "#03101c",
-    fontSize: 15,
-    fontWeight: "800",
   },
 });
