@@ -101,6 +101,18 @@ Project ini memakai Expo Router dengan struktur route berbasis file:
 - Background animasi digunakan ulang di semua halaman melalui komponen `app/starBackground.tsx`.
 - Folder `app-example/` masih ada dari template awal dan tidak dipakai oleh flow utama portfolio ini.
 
+## Screenshoot Tampilan Halaman
+
+![Halaman Profil](assets/images/screenshoot/Halaman1.png)
+
+<br>
+
+![Riwayat Pendidikan](assets/images/screenshoot/Halaman2.png)
+
+<br>
+
+![Riwayat Proyek](assets/images/screenshoot/Halaman3.png)
+
 ## Script yang Tersedia
 
 ```bash
